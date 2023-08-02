@@ -1,0 +1,31 @@
+version: 2
+
+models:
+
+    - name: sales
+      tests:
+        - unique:
+            column_name: "(orders_id || '-' || products_id)"
+            
+      columns:
+        - name: orders_id
+          description: Identifier of the order
+          tests : 
+            - not_null 
+
+        - name: products_id
+          description: Identifier of the product
+            - not_null
+
+        - name: qty
+
+        - name: turnover
+          description: Equivalent to sales
+            - not_null
+
+        - name: purchase_cost
+          description: The cost of purchase
+            - not_null
+
+        - name: margin
+          description: This is calculated by a formula taking turnover and cost
